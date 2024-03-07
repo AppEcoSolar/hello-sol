@@ -1,1 +1,9 @@
+br\com\hellosol\hellosol\model\TipoUsuario$TipoUsuarioBuilder.class
+br\com\hellosol\hellosol\exception\handler\ResourceHandler.class
+br\com\hellosol\hellosol\exception\BadRequestException.class
+br\com\hellosol\hellosol\dto\error\ErrorResponseDto.class
+br\com\hellosol\hellosol\exception\NotFoundException.class
+br\com\hellosol\hellosol\dto\error\ErrorResponseDto$ErrorResponseDtoBuilder.class
+br\com\hellosol\hellosol\exception\BusinessException.class
 br\com\hellosol\hellosol\HelloSolApplication.class
+br\com\hellosol\hellosol\model\TipoUsuario.class

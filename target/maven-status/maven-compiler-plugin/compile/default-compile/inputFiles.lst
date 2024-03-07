@@ -1,1 +1,7 @@
 C:\Projetos\Solar\hello-sol\src\main\java\br\com\hellosol\hellosol\HelloSolApplication.java
+C:\Projetos\Solar\hello-sol\src\main\java\br\com\hellosol\hellosol\exception\handler\ResourceHandler.java
+C:\Projetos\Solar\hello-sol\src\main\java\br\com\hellosol\hellosol\exception\BusinessException.java
+C:\Projetos\Solar\hello-sol\src\main\java\br\com\hellosol\hellosol\model\TipoUsuario.java
+C:\Projetos\Solar\hello-sol\src\main\java\br\com\hellosol\hellosol\dto\error\ErrorResponseDto.java
+C:\Projetos\Solar\hello-sol\src\main\java\br\com\hellosol\hellosol\exception\NotFoundException.java
+C:\Projetos\Solar\hello-sol\src\main\java\br\com\hellosol\hellosol\exception\BadRequestException.java
