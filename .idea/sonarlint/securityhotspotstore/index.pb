@@ -173,3 +173,5 @@ w
 G.idea/sonarlint/issuestore/f/3/f3cb53700729ce6cae56dc04938d53a5420c6089,1\f\1f4fe3849b084d85382fd0c4a0e8cd4c998a70fa
 Å
 Q.idea/sonarlint/securityhotspotstore/5/c/5c0e40b81107df483522c195f99c4afed440767c,2\1\219de9f722fab70c6f9641f7c887b20c3a176a1c
+w
+Gsrc/main/java/br/com/hellosol/hellosol/configuration/SwaggerConfig.java,0\9\099ff6081620d9ca4a61a3b75c0039505b60e51c
