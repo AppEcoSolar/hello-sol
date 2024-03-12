@@ -22,7 +22,7 @@ import java.time.LocalDate;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProducaoUsinaDTO {
 
-    private Integer id;
+    private Long id;
     private Usina usina;
     private LocalDate dtProducao;
     private BigDecimal qtdProducao;

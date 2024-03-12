@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ConsumoClienteDTO {
 
-    private Integer id;
+    private Long id;
     private Usuario usuario;
     private Usina usina;
     private LocalDate dtConsumo;

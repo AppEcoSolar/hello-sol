@@ -1,7 +1,7 @@
 package br.com.hellosol.hellosol.controller;
 
-import br.com.hellosol.hellosol.dto.TipoPessoaDTO;
-import br.com.hellosol.hellosol.service.TipoPessoaService;
+import br.com.hellosol.hellosol.dto.TipoUsuarioDTO;
+import br.com.hellosol.hellosol.service.TipoUsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Tag(name = "Tipo Pessoa endpoint")
+@Tag(name = "Tipo Usuário Endpoint")
 @RestController
-@RequestMapping("tipos-pessoa")
-public class TipoPessoaController {
+@RequestMapping("tipos-usuario")
+public class TipoUsuarioController {
 
     @Autowired
-    private TipoPessoaService tipoPessoaService;
+    private TipoUsuarioService tipoUsuarioService;
 
     @Operation(summary = "Consulta lista dos tipos de pessoa")
     @GetMapping
-    public ResponseEntity<List<TipoPessoaDTO>> listarTipoPessoa() {
-        return ResponseEntity.ok(tipoPessoaService.listarTipoPessoa());
+    public ResponseEntity<List<TipoUsuarioDTO>> listarTipoUsuario() {
+        return ResponseEntity.ok(tipoUsuarioService.listarTipoUsuario());
     }
 }

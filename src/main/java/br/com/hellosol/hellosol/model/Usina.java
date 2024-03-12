@@ -19,7 +19,7 @@ public class Usina implements Serializable {
 
     @Id
     @Column(name = "id_usina")
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;

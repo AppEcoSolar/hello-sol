@@ -20,7 +20,7 @@ public class ProducaoUsina implements Serializable {
 
     @Id
     @Column(name = "id_producao_usina")
-    private Integer id;
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usina")

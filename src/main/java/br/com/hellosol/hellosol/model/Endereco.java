@@ -22,7 +22,7 @@ public class Endereco implements Serializable {
 
     @Id
     @Column(name = "id_endereco")
-    private Integer id;
+    private Long id;
 
     @Column(name = "rua")
     private String rua;

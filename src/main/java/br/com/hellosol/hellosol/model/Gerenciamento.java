@@ -19,7 +19,7 @@ public class Gerenciamento implements Serializable {
 
     @Id
     @Column(name = "id_gerenciamento")
-    private Integer id;
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usina")

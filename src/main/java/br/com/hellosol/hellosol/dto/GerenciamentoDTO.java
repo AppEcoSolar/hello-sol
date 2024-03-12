@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GerenciamentoDTO {
 
-    private Integer id;
+    private Long id;
     private Usina usina;
     private Usuario usuario;
     private LocalDate dtInicio;

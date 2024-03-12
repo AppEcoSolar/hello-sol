@@ -19,7 +19,7 @@ public class Usuario implements Serializable {
 
     @Id
     @Column(name = "id_usuario")
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
