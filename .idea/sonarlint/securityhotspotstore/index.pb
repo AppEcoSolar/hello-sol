@@ -207,8 +207,6 @@ n
 >src/main/java/br/com/hellosol/hellosol/dto/UsuarioRequest.java,f\a\fa1925b26389759b2c33e89c7447885e8c65142f
 x
 Hsrc/main/java/br/com/hellosol/hellosol/controller/UsuarioController.java,7\6\769499047d4f2c7ce4fefd632d9eb471f79f4475
-r
-Bsrc/main/java/br/com/hellosol/hellosol/dto/RetornoOperacaoDTO.java,b\b\bb82b47aaa4cafb959b2d93e23ed0eaef5eb7d61
 m
 =src/main/java/br/com/hellosol/hellosol/enumx/TipoRetorno.java,5\d\5dfcbd24f02cf1ab25d4b8fb5ec272e88e5fe2ff
 q
@@ -217,3 +215,17 @@ Asrc/main/java/br/com/hellosol/hellosol/enumx/MensagemRetorno.java,4\7\4753086b
 Ksrc/main/java/br/com/hellosol/hellosol/service/impl/UsuarioServiceImpl.java,0\7\073dbed44c31d1c3743424f76387dbecc560ba91
 u
 Esrc/main/java/br/com/hellosol/hellosol/Response/OperacaoResponse.java,7\1\7196b23f5bd21461f8137f09fbcf554b7077d00c
+j
+:src/main/java/br/com/hellosol/hellosol/dto/EmpresaDTO.java,c\4\c4d1b6a3a804f24ce29dfa0d8e0c7a0f11fdfb40
+n
+>src/main/java/br/com/hellosol/hellosol/dto/EmpresaRequest.java,7\f\7fa485a51b822587883e737edcb88f9990adf322
+x
+Hsrc/main/java/br/com/hellosol/hellosol/controller/EmpresaController.java,1\1\11c08d97468126544e8649ee3dad542b1caa3e0d
+r
+Bsrc/main/java/br/com/hellosol/hellosol/service/EmpresaService.java,8\f\8fc51d6fc806acbe4fc98be68af31c4b762e9ba9
+{
+Ksrc/main/java/br/com/hellosol/hellosol/service/impl/EmpresaServiceImpl.java,0\2\020b2c48ddf8fed2bfa20ad8a84586f45d4be5fa
+x
+Hsrc/main/java/br/com/hellosol/hellosol/repository/EmpresaRepository.java,4\0\403f7f4dfef0ea58c1b4fc6579e9550c7b2f2430
+i
+9src/main/java/br/com/hellosol/hellosol/model/Empresa.java,4\3\43950c33dd8e0a29444d8ce2995486045c692b69
