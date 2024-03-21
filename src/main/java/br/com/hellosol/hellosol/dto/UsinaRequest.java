@@ -1,5 +1,7 @@
 package br.com.hellosol.hellosol.dto;
 
+import br.com.hellosol.hellosol.model.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
@@ -10,8 +12,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -27,9 +31,20 @@ public class UsinaRequest implements Serializable {
     @NotNull(message = "Código que identifica o tipo de usuário, Gestor, Cliente, Proprietário!")
     private Long idUsuarioProprietario;
 
+    @JsonIgnore
+    private UsuarioDTO usuarioProprietario;
+
     @Schema (description = "Código da empresa",example ="1")
     @NotNull(message = "Código da empresa que será vinculada ao usuário!")
     private Long idEmpresa;
+
+    @JsonIgnore
+    private EmpresaDTO empresaGestora;
+
+    @Schema(description = "CNPJ da Usina", example = "45.998.757/0001-54")
+    @NotBlank(message = "CNPJ não informado!")
+    @CNPJ(message = "O CNPJ é inválido.")
+    private String cnpj;
 
     @Schema(description = "Nome do Usuário", example = "Joao da Silva")
     @Size(max = 100, message = "O tamanho do nome não pode ser maior que 100 caracteres.")
@@ -71,5 +86,11 @@ public class UsinaRequest implements Serializable {
     @Size(max = 9, message = "O tamanho do campo CEP não pode ser maior que 9 caracteres.")
     @Pattern(regexp = "^[0-9]{5}-[0-9]{3}$", message = "O formato do CEP é inválido.")
     private String cep;
+
+    @JsonIgnore
+    private LocalDate createdAt;
+
+    @JsonIgnore
+    private LocalDate updatedAt;
 
 }

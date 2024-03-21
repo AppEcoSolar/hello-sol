@@ -47,7 +47,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @Operation(summary = "")
+    @Operation(summary = "Alterar Informações do Usuário")
     @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OperacaoResponse> alterarUsuario(@Valid @PathVariable("id") Long id, @RequestBody UsuarioRequest usuarioRequest) {
         usuarioRequest.setId(id);

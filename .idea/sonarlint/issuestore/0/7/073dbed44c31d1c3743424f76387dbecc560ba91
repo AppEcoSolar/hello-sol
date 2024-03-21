@@ -1,0 +1,18 @@
+
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8µÏ‰™æ1
+_
+java:S6813""BRemove this field injection and use constructor injection instead.(êæÄŞ8µÏ‰™æ1
+o
+java:S6204*"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¹Ï‰™æ1
+X
+java:S1854B";Remove this useless assignment to local variable "usuario".(ÉÈÂ 8»Ï‰™æ1
+X
+java:S1854Y";Remove this useless assignment to local variable "usuario".(ÉÈÂ 8ƒˆ™æ1
+f
+java:S1128"DRemove this unused import 'br.com.hellosol.hellosol.dto.EmpresaDTO'.(Ö†ïùÿÿÿÿ8ï€¢›æ1
+j
+java:S1128"HRemove this unused import 'br.com.hellosol.hellosol.dto.EmpresaRequest'.(İ²ëıÿÿÿÿ8ï€¢›æ1
+e
+java:S1128
+"CRemove this unused import 'br.com.hellosol.hellosol.model.Empresa'.(Ññ‚¶øÿÿÿÿ8ï€¢›æ1

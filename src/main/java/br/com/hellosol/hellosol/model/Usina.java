@@ -24,23 +24,20 @@ public class Usina implements Serializable {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    private Usuario proprietário;
+    private Usuario usuarioProprietário;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa")
     private Empresa empresaGestora;
+
+    @Column(name = "cnpj")
+    private String cnpj;
 
     @Column(name = "nome")
     private String nome;
 
     @Column(name = "telefone")
     private String telefone;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "senha")
-    private byte[] senha;
 
     @Column(name = "ds_endereco")
     private String endereco;

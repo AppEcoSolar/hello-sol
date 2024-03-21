@@ -58,6 +58,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
 
         usuarioRequest.setCpfCnpj(cpfCnpjApenasNumeros);
+        usuarioRequest.setCreatedAt(LocalDate.now());
 
         Usuario usuario = mapper.map(usuarioRequest, Usuario.class);
 
@@ -72,7 +73,18 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public void alterarUsuario(UsuarioRequest usuarioRequest) {
-        Usuario usuario = mapper.map(usuarioRequest, Usuario.class);
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(usuarioRequest.getId());
+
+        Usuario usuario = usuarioOptional.orElseThrow(() -> new NotFoundException("Usuário não encontrada para o ID: " + usuarioRequest.getId()));
+
+        if (!usuario.getCpfCnpj().equals(usuarioRequest.getCpfCnpj())) {
+            throw new BusinessException("O CPF/CNPJ do Usuário não pode ser alterado.");
+
+        }
+
+        usuarioRequest.setUpdatedAt(LocalDate.now());
+
+        usuario = mapper.map(usuarioRequest, Usuario.class);
         try {
             usuario = usuarioRepository.save(usuario);
         } catch (Exception e) {

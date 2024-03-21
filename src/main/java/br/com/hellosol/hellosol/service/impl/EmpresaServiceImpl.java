@@ -8,6 +8,7 @@ import br.com.hellosol.hellosol.exception.BusinessException;
 import br.com.hellosol.hellosol.exception.InternalServerErrorException;
 import br.com.hellosol.hellosol.exception.NotFoundException;
 import br.com.hellosol.hellosol.model.Empresa;
+import br.com.hellosol.hellosol.model.Usina;
 import br.com.hellosol.hellosol.repository.EmpresaRepository;
 import br.com.hellosol.hellosol.repository.UsuarioRepository;
 import br.com.hellosol.hellosol.service.EmpresaService;
@@ -64,6 +65,7 @@ public class EmpresaServiceImpl implements EmpresaService {
         }
 
         empresaRequest.setCnpj(cnpjApenasNumeros);
+        empresaRequest.setCreatedAt(LocalDate.now());
 
         Empresa empresa = mapper.map(empresaRequest, Empresa.class);
 
@@ -79,7 +81,18 @@ public class EmpresaServiceImpl implements EmpresaService {
 
     @Override
     public void alterarEmpresa(EmpresaRequest empresaRequest) {
-        Empresa empresa = mapper.map(empresaRequest, Empresa.class);
+        Optional<Empresa> empresaOptional = empresaRepository.findById(empresaRequest.getId());
+
+        Empresa empresa = empresaOptional.orElseThrow(() -> new NotFoundException("Empresa não encontrada para o ID: " + empresaRequest.getId()));
+
+        if (!empresa.getCnpj().equals(empresaRequest.getCnpj())) {
+            throw new BusinessException("O CNPJ da Empresa não pode ser alterado.");
+
+        }
+
+        empresaRequest.setUpdatedAt(LocalDate.now());
+
+        empresa = mapper.map(empresaRequest, Empresa.class);
         try {
             empresa = empresaRepository.save(empresa);
         } catch (Exception e) {

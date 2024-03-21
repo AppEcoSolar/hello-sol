@@ -1,0 +1,11 @@
+
+^
+java:S6353P"<Use concise character class syntax '\\d' instead of '[0-9]'.(•ò±Çıÿÿÿÿ8¼±öÌå1
+^
+java:S6353P"<Use concise character class syntax '\\d' instead of '[0-9]'.(•ò±Çıÿÿÿÿ8¼±öÌå1
+f
+java:S1128"DRemove this unused import 'br.com.hellosol.hellosol.model.Endereco'.(ºË×àøÿÿÿÿ8äÌØËå1
+c
+java:S1128"FRemove this unused import 'br.com.hellosol.hellosol.model.TipoPessoa'.(êæó«8äÌØËå1
+i
+java:S1128"GRemove this unused import 'br.com.hellosol.hellosol.model.TipoUsuario'.(˜¬ùÿÿÿÿ8äÌØËå1

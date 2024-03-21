@@ -1,0 +1,20 @@
+
+f
+java:S1128"DRemove this unused import 'br.com.hellosol.hellosol.model.Endereco'.(ºË×àøÿÿÿÿ8Ã®Ä€ä1
+c
+java:S1128"FRemove this unused import 'br.com.hellosol.hellosol.model.TipoPessoa'.(êæó«8Ã®Ä€ä1
+i
+java:S1128"GRemove this unused import 'br.com.hellosol.hellosol.model.TipoUsuario'.(˜¬ùÿÿÿÿ8Ã®Ä€ä1
+i
+java:S1128"GRemove this unused import 'io.swagger.v3.oas.annotations.media.Schema'.(“è«øüÿÿÿÿ8ñÆØÎå1
+c
+java:S1128"ARemove this unused import 'jakarta.validation.constraints.Email'.(Öï¤Âıÿÿÿÿ8ñÆØÎå1
+f
+java:S1128	"DRemove this unused import 'jakarta.validation.constraints.NotBlank'.(ÕØ¡Õøÿÿÿÿ8ñÆØÎå1
+e
+java:S1128
+"CRemove this unused import 'jakarta.validation.constraints.Pattern'.(Îá˜ãúÿÿÿÿ8ñÆØÎå1
+]
+java:S1128"@Remove this unused import 'jakarta.validation.constraints.Size'.(çÀ…Í8ñÆØÎå1
+j
+java:S1128"HRemove this unused import 'org.hibernate.validator.constraints.br.CNPJ'.(½·¿ğûÿÿÿÿ8ñÆØÎå1

@@ -95,4 +95,7 @@ public class UsuarioRequest implements Serializable {
     @Pattern(regexp = "^[0-9]{5}-[0-9]{3}$", message = "O formato do CEP é inválido.")
     private String cep;
 
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
+
 }

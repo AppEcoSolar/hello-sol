@@ -1,17 +1,13 @@
 package br.com.hellosol.hellosol.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,8 +17,9 @@ import java.io.Serializable;
 public class UsinaDTO implements Serializable {
 
     private Long id;
-    private Long idUsuarioProprietario;
-    private Long idEmpresa;
+    private UsuarioDTO usuarioProprietário;
+    private EmpresaDTO empresaGestora;
+    private String cnpj;
     private String nome;
     private String telefone;
     private String endereco;
@@ -31,5 +28,8 @@ public class UsinaDTO implements Serializable {
     private String municipio;
     private String uf;
     private String cep;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
+    private LocalDate deletedAt;
 
 }

@@ -1,0 +1,25 @@
+
+_
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8µÄ™æ1
+_
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8¶Ä™æ1
+o
+java:S62040"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¹Ä™æ1
+]
+java:S1854I";Remove this useless assignment to local variable "empresa".(ğ”Š²ıÿÿÿÿ8»Ä™æ1
+]
+java:S1854a";Remove this useless assignment to local variable "empresa".(ğ”Š²ıÿÿÿÿ8¾Ä™æ1
+a
+java:S1128"DRemove this unused import 'br.com.hellosol.hellosol.dto.UsuarioDTO'.(âÖÉ 8ş¢›æ1
+e
+java:S1128"HRemove this unused import 'br.com.hellosol.hellosol.dto.UsuarioRequest'.(‘Ù„è8ş¢›æ1
+]
+java:S1128"ARemove this unused import 'br.com.hellosol.hellosol.model.Usina'.(Â¾àb8ş¢›æ1
+t
+java:S1128"RRemove this unused import 'br.com.hellosol.hellosol.repository.UsuarioRepository'.(Ñ¼œÃûÿÿÿÿ8ş¢›æ1
+n
+java:S1128"LRemove this unused import 'br.com.hellosol.hellosol.service.UsuarioService'.(¿í–îøÿÿÿÿ8ş¢›æ1
+V
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8ş¢›æ1
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8ş¢›æ1
