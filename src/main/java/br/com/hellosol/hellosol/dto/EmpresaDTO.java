@@ -30,13 +30,12 @@ public class EmpresaDTO implements Serializable {
     private String cnpj;
     private String telefone;
     private String email;
-    private String rua;
-    private String numero;
-    private String complemento;
-    private String cidade;
-    private String estado;
+    private String endereco;
+    private String complementoEndereco;
+    private String bairro;
+    private String municipio;
+    private String uf;
     private String cep;
-    private String pais;
     private LocalDate createdAt;
     private LocalDate updatedAt;
     private LocalDate deletedAt;

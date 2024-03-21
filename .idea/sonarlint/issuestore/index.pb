@@ -229,3 +229,17 @@ x
 Hsrc/main/java/br/com/hellosol/hellosol/repository/EmpresaRepository.java,4\0\403f7f4dfef0ea58c1b4fc6579e9550c7b2f2430
 i
 9src/main/java/br/com/hellosol/hellosol/model/Empresa.java,4\3\43950c33dd8e0a29444d8ce2995486045c692b69
+k
+;src/main/java/br/com/hellosol/hellosol/util/StringUtil.java,3\9\39d4d31154aec17a56d08a3dea2d0cf40ea34938
+s
+Csrc/main/java/br/com/hellosol/hellosol/util/validation/CpfCnpj.java,6\7\677b2ca1a10976db899d3ad1ef9e53afef7c69bf
+|
+Lsrc/main/java/br/com/hellosol/hellosol/util/validation/CpfCnpjValidator.java,7\b\7be7136f4e4ccb95a5ef98e78d9177fdf059dfd9
+y
+Isrc/main/java/br/com/hellosol/hellosol/util/validation/CNPJValidator.java,7\7\77b65128feab52276510d900c9b426fa6ddb7553
+x
+Hsrc/main/java/br/com/hellosol/hellosol/util/validation/CPFValidator.java,f\7\f7ed0e4e42c9c440796f99371faebb33c853619a
+l
+<src/main/java/br/com/hellosol/hellosol/dto/UsinaRequest.java,4\f\4f57f57e4a74182a97d83640f0b71173693cf972
+h
+8src/main/java/br/com/hellosol/hellosol/dto/UsinaDTO.java,5\3\533eeb0b1d5de543ddafb60b4a64dad967703095

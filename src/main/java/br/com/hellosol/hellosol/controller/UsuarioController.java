@@ -24,6 +24,20 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Operation(summary = "Consulta usuários")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<UsuarioDTO>> listarUsuarios(
+            @RequestParam(value = "cpfCnpj", required = false) String cpfCnpj,
+            @RequestParam(value = "nome", required = false) String nome) {
+        return ResponseEntity.ok(usuarioService.listarUsuarios(cpfCnpj, nome));
+    }
+
+    @Operation(summary = "Consulta um Usuário")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UsuarioDTO> buscarUsuarioById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(usuarioService.findById(id));
+    }
+
     @Operation(summary = "Cria um usuario")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
@@ -33,29 +47,20 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @Operation(summary = "Consulta usuários")
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<UsuarioDTO>> listarUsuarios(
-            @RequestParam(value = "numeroContaBeneficiario", required = true) String numeroContaBeneficiario,
-            @RequestParam(value = "codTipoPessoa", required = false) Integer codTipoPessoa,
-            @RequestParam(value = "cpfCnpjNome", required = false) String cpfCnpjNome,
-            @RequestParam(value = "nome", required = false) String nome) {
-        return ResponseEntity.ok(usuarioService.listarUsuarios(numeroContaBeneficiario, codTipoPessoa,
-                cpfCnpjNome, nome));
-    }
-
-    @Operation(summary = "Consulta um Usuário")
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UsuarioDTO> buscarUsuarioById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(usuarioService.findById(id));
-    }
-
-    @Operation(summary = "Altera os dados de um Usuário")
+    @Operation(summary = "")
     @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OperacaoResponse> alterarUsuario(@Valid @PathVariable("id") Long id, @RequestBody UsuarioRequest usuarioRequest) {
         usuarioRequest.setId(id);
         usuarioService.alterarUsuario(usuarioRequest);
         OperacaoResponse response = new OperacaoResponse(MensagemRetorno.SUCESSO_ALTERACAO_USUARIO);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @Operation(summary = "Excluir Usuário")
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<OperacaoResponse> excluirUsuario(@PathVariable("id") Long id) {
+        usuarioService.excluirUsuario(id);
+        OperacaoResponse response = new OperacaoResponse(MensagemRetorno.SUCESSO_EXCLUSAO_USUARIO);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

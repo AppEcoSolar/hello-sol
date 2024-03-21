@@ -18,19 +18,47 @@ import java.time.LocalDate;
 public class Usina implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usina")
     private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    private Usuario proprietário;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_empresa")
+    private Empresa empresaGestora;
 
     @Column(name = "nome")
     private String nome;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_endereco")
-    private Endereco endereco;
+    @Column(name = "telefone")
+    private String telefone;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "senha")
+    private byte[] senha;
+
+    @Column(name = "ds_endereco")
+    private String endereco;
+
+    @Column(name = "ds_complemento_endereco")
+    private String complementoEndereco;
+
+    @Column(name = "bairro")
+    private String bairro;
+
+    @Column(name = "no_municipio")
+    private String municipio;
+
+    @Column(name = "sg_uf")
+    private String uf;
+
+    @Column(name = "cep")
+    private String cep;
 
     @Column(name = "created_at")
     private LocalDate createdAt;

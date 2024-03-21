@@ -12,6 +12,7 @@ import br.com.hellosol.hellosol.repository.EmpresaRepository;
 import br.com.hellosol.hellosol.repository.UsuarioRepository;
 import br.com.hellosol.hellosol.service.EmpresaService;
 import br.com.hellosol.hellosol.service.UsuarioService;
+import br.com.hellosol.hellosol.util.StringUtil;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -37,10 +38,10 @@ public class EmpresaServiceImpl implements EmpresaService {
     private ModelMapper mapper;
 
 
-
     @Override
     public List<EmpresaDTO> listarEmpresas(String cnpj, String nome) {
         nome = Objects.isNull(nome) ? nome : nome.toUpperCase();
+        cnpj = Objects.isNull(cnpj) ? cnpj : StringUtil.somenteNumeros(cnpj);
         return empresaRepository.findByCnpjOrNomeOrderByNome(cnpj, nome).stream()
                 .map(p -> mapper.map(p, EmpresaDTO.class))
                 .collect(Collectors.toList());
@@ -55,10 +56,14 @@ public class EmpresaServiceImpl implements EmpresaService {
     @Transactional
     @Override
     public void criarEmpresa(EmpresaRequest empresaRequest) {
+        String cnpjApenasNumeros = StringUtil.somenteNumeros(empresaRequest.getCnpj());
+
         Optional<Empresa> empresaOptional = empresaRepository.findByCnpj(empresaRequest.getCnpj().trim());
         if (empresaOptional.isPresent()) {
             throw new BusinessException("Já existe uma empresa Registrada com esse CNPJ " + empresaRequest.getCnpj() + ".");
         }
+
+        empresaRequest.setCnpj(cnpjApenasNumeros);
 
         Empresa empresa = mapper.map(empresaRequest, Empresa.class);
 
@@ -88,11 +93,12 @@ public class EmpresaServiceImpl implements EmpresaService {
         Empresa empresa = empresaOptional.orElseThrow(() -> new NotFoundException("Empresa não encontrada!"));
         empresa.setDeletedAt(LocalDate.now());
         try {
-            empresaRepository.delete(empresa);
+            empresaRepository.save(empresa);
         } catch (Exception e) {
             e.printStackTrace();
             throw new InternalServerErrorException("Erro ao excluir empresa.");
         }
     }
+
 
 }

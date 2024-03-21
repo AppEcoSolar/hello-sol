@@ -34,26 +34,23 @@ public class Empresa implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "rua")
-    private String rua;
+    @Column(name = "ds_endereco")
+    private String endereco;
 
-    @Column(name = "numero")
-    private String numero;
+    @Column(name = "ds_complemento_endereco")
+    private String complementoEndereco;
 
-    @Column(name = "complemento")
-    private String complemento;
+    @Column(name = "bairro")
+    private String bairro;
 
-    @Column(name = "cidade")
-    private String cidade;
+    @Column(name = "no_municipio")
+    private String municipio;
 
-    @Column(name = "estado")
-    private String estado;
+    @Column(name = "sg_uf")
+    private String uf;
 
     @Column(name = "cep")
     private String cep;
-
-    @Column(name = "pais")
-    private String pais;
 
     @Column(name = "created_at")
     private LocalDate createdAt;
