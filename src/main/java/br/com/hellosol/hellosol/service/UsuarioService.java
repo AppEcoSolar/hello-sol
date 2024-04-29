@@ -1,7 +1,5 @@
 package br.com.hellosol.hellosol.service;
 
-import br.com.hellosol.hellosol.dto.EmpresaDTO;
-import br.com.hellosol.hellosol.dto.EmpresaRequest;
 import br.com.hellosol.hellosol.dto.UsuarioDTO;
 import br.com.hellosol.hellosol.dto.UsuarioRequest;
 

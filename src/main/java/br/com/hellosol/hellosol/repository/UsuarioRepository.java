@@ -12,7 +12,9 @@ import java.util.Optional;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
 
-    Optional<Usuario> findByCpfCnpj(String cpfCnpj);
+    Usuario findByCpfCnpj(String cpfCnpj);
+
+    Usuario findByEmail(String email);
 
     @Query("SELECT u FROM Usuario u WHERE (:cpfCnpj IS NULL OR u.cpfCnpj LIKE %:cpfCnpj%) AND (:nome IS NULL OR u.nome LIKE %:nome%) AND u.deletedAt IS NULL ORDER BY u.nome")
     List<Usuario> findByCpfCnpjOrNomeOrderByNome(@Param("cpfCnpj") String cpfCnpj, @Param("nome") String nome);

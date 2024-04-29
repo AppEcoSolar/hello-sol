@@ -1,10 +1,7 @@
 package br.com.hellosol.hellosol.exception.handler;
 
 import br.com.hellosol.hellosol.dto.error.ErrorResponseDTO;
-import br.com.hellosol.hellosol.exception.BadRequestException;
-import br.com.hellosol.hellosol.exception.BusinessException;
-import br.com.hellosol.hellosol.exception.InternalServerErrorException;
-import br.com.hellosol.hellosol.exception.NotFoundException;
+import br.com.hellosol.hellosol.exception.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -81,6 +78,33 @@ public class ResourceHandler {
                 .message(b.getMessage())
                 .httpStatus(HttpStatus.INTERNAL_SERVER_ERROR)
                 .StatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .build());
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorResponseDTO> unauthorizedException(UnauthorizedException u) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ErrorResponseDTO.builder()
+                .message(u.getMessage())
+                .httpStatus(HttpStatus.UNAUTHORIZED)
+                .StatusCode(HttpStatus.UNAUTHORIZED.value())
+                .build());
+    }
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public ResponseEntity<ErrorResponseDTO> jwtVerificationException(JWTVerificationException u) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ErrorResponseDTO.builder()
+                .message(u.getMessage())
+                .httpStatus(HttpStatus.UNAUTHORIZED)
+                .StatusCode(HttpStatus.UNAUTHORIZED.value())
+                .build());
+    }
+
+    @ExceptionHandler(JWTCreationException.class)
+    public ResponseEntity<ErrorResponseDTO> jwtCreationException(JWTCreationException u) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ErrorResponseDTO.builder()
+                .message(u.getMessage())
+                .httpStatus(HttpStatus.UNAUTHORIZED)
+                .StatusCode(HttpStatus.UNAUTHORIZED.value())
                 .build());
     }
 }

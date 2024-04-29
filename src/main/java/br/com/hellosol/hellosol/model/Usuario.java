@@ -1,13 +1,19 @@
 package br.com.hellosol.hellosol.model;
 
+import br.com.hellosol.hellosol.enumx.RoleEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +21,7 @@ import java.time.LocalDate;
 @Builder
 @Entity
 @Table(name = "TB_USUARIO", schema = "HELLOSOL")
-public class Usuario implements Serializable {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +53,7 @@ public class Usuario implements Serializable {
     private String email;
 
     @Column(name = "senha")
-    private byte[] senha;
+    private String senha;
 
     @Column(name = "ds_endereco")
     private String endereco;
@@ -76,4 +82,49 @@ public class Usuario implements Serializable {
     @Column(name = "deleted_at")
     private LocalDate deletedAt;
 
+    @Transient
+    private RoleEnum role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.role == RoleEnum.ADMIN){
+            return List.of(
+              new SimpleGrantedAuthority("ROLE_ADMIN"),
+              new SimpleGrantedAuthority("ROLE_USER")
+            );
+        }
+        return List.of(
+                new SimpleGrantedAuthority("ROLE_USER")
+        );
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.cpfCnpj;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

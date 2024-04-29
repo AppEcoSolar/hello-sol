@@ -18,7 +18,7 @@ import java.util.List;
 
 @Tag(name = "Gerênciar Usuário Endpoint")
 @RestController
-@RequestMapping("usuarios")
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
     @Autowired

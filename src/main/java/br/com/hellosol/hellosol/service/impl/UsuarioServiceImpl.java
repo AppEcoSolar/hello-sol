@@ -16,6 +16,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -33,6 +34,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     private ModelMapper mapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<UsuarioDTO> listarUsuarios(String cpfCnpjNome, String nome) {
@@ -52,11 +56,19 @@ public class UsuarioServiceImpl implements UsuarioService {
     public void criarUsuario(UsuarioRequest usuarioRequest) {
         String cpfCnpjApenasNumeros = StringUtil.somenteNumeros(usuarioRequest.getCpfCnpj());
 
-        Optional<Usuario> usuarioOptional = usuarioRepository.findByCpfCnpj(usuarioRequest.getCpfCnpj().trim());
-        if (usuarioOptional.isPresent()) {
+        Usuario jaExisteUsuario = usuarioRepository.findByCpfCnpj(cpfCnpjApenasNumeros);
+        if (jaExisteUsuario != null) {
             throw new BusinessException("Já existe um Usuário cadastrado com esse CPF/CNPJ " + usuarioRequest.getCpfCnpj() + ".");
         }
 
+        Usuario jaExisteEmail = usuarioRepository.findByEmail(usuarioRequest.getEmail());
+        if (jaExisteEmail != null) {
+            throw new BusinessException("Já existe um Usuário cadastrado com esse Email " + usuarioRequest.getEmail() + ".");
+        }
+
+        var passwordHash = passwordEncoder.encode(usuarioRequest.getSenha());
+
+        usuarioRequest.setSenha(passwordHash);
         usuarioRequest.setCpfCnpj(cpfCnpjApenasNumeros);
         usuarioRequest.setCreatedAt(LocalDate.now());
 

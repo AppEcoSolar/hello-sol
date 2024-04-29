@@ -1,13 +1,5 @@
 
 ^
-java:S6353_"<Use concise character class syntax '\\d' instead of '[0-9]'.(•ò±Çıÿÿÿÿ8ùàíå1
+java:S6353["<Use concise character class syntax '\\d' instead of '[0-9]'.(•ò±Çıÿÿÿÿ8ùàíå1
 ^
-java:S6353_"<Use concise character class syntax '\\d' instead of '[0-9]'.(•ò±Çıÿÿÿÿ8ùàíå1
-f
-java:S1128"DRemove this unused import 'br.com.hellosol.hellosol.model.Endereco'.(ºË×àøÿÿÿÿ8Şº½îå1
-c
-java:S1128"FRemove this unused import 'br.com.hellosol.hellosol.model.TipoPessoa'.(êæó«8Şº½îå1
-i
-java:S1128"GRemove this unused import 'br.com.hellosol.hellosol.model.TipoUsuario'.(˜¬ùÿÿÿÿ8ßº½îå1
-j
-java:S1128"HRemove this unused import 'org.hibernate.validator.constraints.br.CNPJ'.(½·¿ğûÿÿÿÿ8ßº½îå1
+java:S6353["<Use concise character class syntax '\\d' instead of '[0-9]'.(•ò±Çıÿÿÿÿ8ùàíå1
