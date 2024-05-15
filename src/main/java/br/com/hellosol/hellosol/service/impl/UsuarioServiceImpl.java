@@ -93,6 +93,8 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new BusinessException("O CPF/CNPJ do Usuário não pode ser alterado.");
 
         }
+        String encryptedPassword = passwordEncoder.encode(usuarioRequest.getSenha());
+        usuarioRequest.setSenha(encryptedPassword);
 
         usuarioRequest.setUpdatedAt(LocalDate.now());
 
