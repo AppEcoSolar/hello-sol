@@ -32,6 +32,7 @@ public class WebSecurityConfig{
                         .requestMatchers(HttpMethod.GET, "/usuarios/user").hasRole("USER")
                         .requestMatchers(HttpMethod.POST, "/usuarios").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/refresh-token").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -19,5 +19,7 @@ public class SwaggerConfig  {
                         .contact(new Contact().name("Comercial Hello Sol").email("hellosol@gmail.com"))
                         .version("1.0.0"));
     }
+
+
 }
 
