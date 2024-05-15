@@ -1,0 +1,20 @@
+# Ignorar arquivos JAR
+target/*.jar
+
+# Ignorar arquivos JAR originais
+target/*.jar.original
+
+# Ignorar propriedades do Maven Archiver
+target/maven-archiver/
+
+# Ignorar arquivos criados pelo Maven Compiler Plugin
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+
+# Ignorar relatórios do Surefire
+target/surefire-reports/
+
+# Ignorar classes de teste compiladas
+target/test-classes/
