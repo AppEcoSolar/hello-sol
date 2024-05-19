@@ -1,9 +1,6 @@
 package br.com.hellosol.hellosol.service.impl;
 
-import br.com.hellosol.hellosol.dto.EmpresaDTO;
-import br.com.hellosol.hellosol.dto.EmpresaRequest;
-import br.com.hellosol.hellosol.dto.UsuarioDTO;
-import br.com.hellosol.hellosol.dto.UsuarioRequest;
+import br.com.hellosol.hellosol.dto.*;
 import br.com.hellosol.hellosol.exception.BusinessException;
 import br.com.hellosol.hellosol.exception.InternalServerErrorException;
 import br.com.hellosol.hellosol.exception.NotFoundException;
@@ -44,6 +41,12 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findByCpfCnpjOrNomeOrderByNome(cpfCnpjNome, nome).stream()
                 .map(p -> mapper.map(p, UsuarioDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UsuarioSemSenhaDTO consultarUsuario(String cpfCnpjNome) {
+        Usuario usuario = usuarioRepository.findByCpfCnpj(cpfCnpjNome);
+        return new UsuarioSemSenhaDTO(usuario);
     }
 
     @Override
