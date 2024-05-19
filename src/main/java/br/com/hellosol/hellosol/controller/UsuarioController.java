@@ -3,6 +3,7 @@ package br.com.hellosol.hellosol.controller;
 import br.com.hellosol.hellosol.Response.OperacaoResponse;
 import br.com.hellosol.hellosol.dto.UsuarioDTO;
 import br.com.hellosol.hellosol.dto.UsuarioRequest;
+import br.com.hellosol.hellosol.dto.UsuarioSemSenhaDTO;
 import br.com.hellosol.hellosol.enumx.MensagemRetorno;
 import br.com.hellosol.hellosol.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,6 +31,13 @@ public class UsuarioController {
             @RequestParam(value = "cpfCnpj", required = false) String cpfCnpj,
             @RequestParam(value = "nome", required = false) String nome) {
         return ResponseEntity.ok(usuarioService.listarUsuarios(cpfCnpj, nome));
+    }
+
+    @Operation(summary = "Consulta usuários por CPF")
+    @GetMapping(path = "/consulta", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UsuarioSemSenhaDTO> consutarPorCpfCnpj(
+            @RequestParam(value = "cpfCnpj", required = false) String cpfCnpj) {
+        return ResponseEntity.ok(usuarioService.consultarUsuario(cpfCnpj));
     }
 
     @Operation(summary = "Consulta um Usuário")

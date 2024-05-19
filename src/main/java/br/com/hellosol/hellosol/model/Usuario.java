@@ -28,15 +28,15 @@ public class Usuario implements UserDetails {
     @Column(name = "id_usuario")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_empresa")
     private Empresa empresa;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tipo_usuario")
     private TipoUsuario tipoUsuario;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tipo_pessoa")
     private TipoPessoa tipoPessoa;
 
