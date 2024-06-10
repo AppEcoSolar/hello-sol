@@ -2,17 +2,12 @@ package br.com.hellosol.hellosol.service.impl;
 
 import br.com.hellosol.hellosol.dto.EmpresaDTO;
 import br.com.hellosol.hellosol.dto.EmpresaRequest;
-import br.com.hellosol.hellosol.dto.UsuarioDTO;
-import br.com.hellosol.hellosol.dto.UsuarioRequest;
 import br.com.hellosol.hellosol.exception.BusinessException;
 import br.com.hellosol.hellosol.exception.InternalServerErrorException;
 import br.com.hellosol.hellosol.exception.NotFoundException;
 import br.com.hellosol.hellosol.model.Empresa;
-import br.com.hellosol.hellosol.model.Usina;
 import br.com.hellosol.hellosol.repository.EmpresaRepository;
-import br.com.hellosol.hellosol.repository.UsuarioRepository;
 import br.com.hellosol.hellosol.service.EmpresaService;
-import br.com.hellosol.hellosol.service.UsuarioService;
 import br.com.hellosol.hellosol.util.StringUtil;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -21,11 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,6 +43,17 @@ public class EmpresaServiceImpl implements EmpresaService {
     @Override
     public EmpresaDTO buscarEmpresaById(Long id) {
         return mapper.map(empresaRepository.findById(id).orElseThrow(() -> new NotFoundException("Nenhuma Empresa encontrada!")), EmpresaDTO.class);
+    }
+
+    @Override
+    public List<EmpresaDTO> buscarListEmpresaById(Long id) {
+        if(!id.equals(0L)){
+            return Collections.singletonList(mapper.map(empresaRepository.findById(id).orElseThrow(() -> new NotFoundException("Nenhuma Empresa encontrada!")), EmpresaDTO.class));
+        } else{
+            List<Empresa> empresas = empresaRepository.findAll();
+            return empresas.stream()
+                    .map(empresa -> mapper.map(empresa, EmpresaDTO.class))
+                    .collect(Collectors.toList());        }
     }
 
     @Transactional

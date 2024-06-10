@@ -13,7 +13,10 @@ public interface EmpresaService {
 
     List<EmpresaDTO> listarEmpresas(String cnpj, String nome);
 
+    List<EmpresaDTO> buscarListEmpresaById(Long id);
+
     EmpresaDTO buscarEmpresaById(Long id);
+
     void alterarEmpresa(EmpresaRequest empresaRequest);
 
     void excluirEmpresa(Long id);

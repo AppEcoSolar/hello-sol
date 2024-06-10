@@ -3,11 +3,8 @@ package br.com.hellosol.hellosol.controller;
 import br.com.hellosol.hellosol.Response.OperacaoResponse;
 import br.com.hellosol.hellosol.dto.EmpresaDTO;
 import br.com.hellosol.hellosol.dto.EmpresaRequest;
-import br.com.hellosol.hellosol.dto.UsuarioDTO;
-import br.com.hellosol.hellosol.dto.UsuarioRequest;
 import br.com.hellosol.hellosol.enumx.MensagemRetorno;
 import br.com.hellosol.hellosol.service.EmpresaService;
-import br.com.hellosol.hellosol.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -39,6 +36,13 @@ public class EmpresaController {
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EmpresaDTO> buscarEmpresaById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(empresaService.buscarEmpresaById(id));
+    }
+
+    @Operation(summary = "Consulta todas as Empresa")
+    @GetMapping(value = "/lista/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<EmpresaDTO>> buscarListEmpresaById(@PathVariable("id") Long id) {
+        List<EmpresaDTO> retorno = empresaService.buscarListEmpresaById(id);
+        return ResponseEntity.ok(retorno);
     }
 
     @Operation(summary = "Cria uma empresa gestora")
